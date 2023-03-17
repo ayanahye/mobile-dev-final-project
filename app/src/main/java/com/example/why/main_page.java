@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 public class main_page extends AppCompatActivity {
 
+
     private ArrayList<String> books;
     private ArrayAdapter<String> booksAdapter;
     private Button button;
@@ -31,10 +32,15 @@ public class main_page extends AppCompatActivity {
         button = findViewById(R.id.addBookButton);
 
 
+        EditText title_input = findViewById(R.id.addBookEditText);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addBook(view);
+                MyDatabaseHelper myDB = new MyDatabaseHelper(main_page.this);
+                myDB.addBook(title_input.getText().toString().trim());
+
+
+                //addBook(view);
             }
         });
 
@@ -68,6 +74,7 @@ public class main_page extends AppCompatActivity {
         });
     }
 
+    /*
     private void addBook(View view) {
         EditText input = findViewById(R.id.addBookEditText);
         String bookText = input.getText().toString();
@@ -79,6 +86,8 @@ public class main_page extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please enter text", Toast.LENGTH_LONG).show();
         }
     }
+    */
+
 
     public void deleteAll(View view) {
         books.clear();
