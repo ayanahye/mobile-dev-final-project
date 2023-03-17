@@ -41,9 +41,9 @@ public class main_page extends AppCompatActivity {
             public void onClick(View view) {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(main_page.this);
                 myDB.addBook(title_input.getText().toString().trim());
-
-
                 //addBook(view);
+                displayData();
+
             }
         });
 
@@ -84,39 +84,11 @@ public class main_page extends AppCompatActivity {
                 myDB.deleteBook(id);
 
                 books.remove(i);
-                // Remove the book from the list and update the adapter
 
-//                books.remove(i);
-//                for (int j = i; j< books.size(); j++) {
-//                    String newTitle = books.get(j).substring(3);
-//                    books.set(j, j+". " + newTitle);
-//                }
                 booksAdapter.notifyDataSetChanged();
             }
         });
     }
-
-    /*
-    private void addBook(View view) {
-        EditText input = findViewById(R.id.addBookEditText);
-        String bookText = input.getText().toString();
-
-        if(!(bookText.equals(""))) {
-            booksAdapter.add(bookText);
-            input.setText("");
-        } else {
-            Toast.makeText(getApplicationContext(), "Please enter text", Toast.LENGTH_LONG).show();
-        }
-    }
-
-
-
-    public void deleteAll(View view) {
-        books.clear();
-        booksAdapter.notifyDataSetChanged();
-
-    }
-     */
 
     public void deleteAll(View view) {
         myDB.deleteAllBooks();
@@ -131,11 +103,10 @@ public class main_page extends AppCompatActivity {
         if (cursor.getCount() == 0) {
             Toast.makeText(this, "no data", Toast.LENGTH_SHORT).show();
         } else {
-            int i = 0;
+            books.clear();
             while (cursor.moveToNext()) {
                 String bookTitle = cursor.getString(1);
-                books.add(i + ". " + bookTitle);
-                i++;
+                books.add(bookTitle);
             }
             booksAdapter.notifyDataSetChanged(); // notify the adapter about the changes
         }
