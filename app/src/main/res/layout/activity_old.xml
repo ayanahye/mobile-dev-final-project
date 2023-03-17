@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/bookshelfLayout"
     android:layout_width="match_parent"
@@ -16,38 +15,32 @@
             android:id="@+id/nextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="next"/>
+            android:text="next" />
 
         <TextView
             android:id="@+id/titleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="Previous Readings"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
-
-    </LinearLayout>
-
-    <ListView
-        android:id="@+id/bookListView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:scrollbarStyle="outsideOverlay"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp">
+            android:text="Generate Book"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/deleteAllButton"
+        android:id="@+id/generateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Generate Book" />
+
+    <TextView
+        android:id="@+id/bookTitleTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="deleteAll"
-        android:text="Delete All" />
+        android:layout_marginTop="32dp"
+        android:gravity="center_horizontal"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold" />
 
 </LinearLayout>
