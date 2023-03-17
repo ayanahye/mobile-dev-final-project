@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,6 +23,8 @@ public class main_page extends AppCompatActivity {
     private ArrayAdapter<String> booksAdapter;
     private Button button;
     private ListView listView;
+
+    MyDatabaseHelper myDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,10 @@ public class main_page extends AppCompatActivity {
             }
         });
 
+        myDB = new MyDatabaseHelper(main_page.this);
+        books = new ArrayList<>();
+
+
         Button prev = findViewById(R.id.prevButton);
         prev.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,10 +60,12 @@ public class main_page extends AppCompatActivity {
             }
         });
 
-        books = new ArrayList<>();
         booksAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, books);
         listView.setAdapter(booksAdapter);
         setUplistViewListener();
+
+        displayData();
+
 
     }
 
@@ -67,9 +76,22 @@ public class main_page extends AppCompatActivity {
                 Context context = getApplicationContext();
                 Toast.makeText(context, "Item removed", Toast.LENGTH_LONG).show();
 
+                // Remove the book from the database
+                String title = books.get(i);
+                Cursor cursor = myDB.readAllData();
+                cursor.moveToPosition(i);
+                int id = cursor.getInt(cursor.getColumnIndexOrThrow("_id"));
+                myDB.deleteBook(id);
+
                 books.remove(i);
+                // Remove the book from the list and update the adapter
+
+//                books.remove(i);
+//                for (int j = i; j< books.size(); j++) {
+//                    String newTitle = books.get(j).substring(3);
+//                    books.set(j, j+". " + newTitle);
+//                }
                 booksAdapter.notifyDataSetChanged();
-                return;
             }
         });
     }
@@ -86,7 +108,7 @@ public class main_page extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please enter text", Toast.LENGTH_LONG).show();
         }
     }
-    */
+
 
 
     public void deleteAll(View view) {
@@ -94,4 +116,30 @@ public class main_page extends AppCompatActivity {
         booksAdapter.notifyDataSetChanged();
 
     }
+     */
+
+    public void deleteAll(View view) {
+        myDB.deleteAllBooks();
+        books.clear();
+        booksAdapter.notifyDataSetChanged();
+    }
+
+
+
+    void displayData() {
+        Cursor cursor = myDB.readAllData();
+        if (cursor.getCount() == 0) {
+            Toast.makeText(this, "no data", Toast.LENGTH_SHORT).show();
+        } else {
+            int i = 0;
+            while (cursor.moveToNext()) {
+                String bookTitle = cursor.getString(1);
+                books.add(i + ". " + bookTitle);
+                i++;
+            }
+            booksAdapter.notifyDataSetChanged(); // notify the adapter about the changes
+        }
+    }
+
 }
+
