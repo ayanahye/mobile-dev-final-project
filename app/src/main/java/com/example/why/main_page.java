@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+import com.example.why.SettingsActivity;
 
 import java.util.ArrayList;
 
@@ -47,6 +48,8 @@ public class main_page extends AppCompatActivity {
             }
         });
 
+
+
         myDB = new MyDatabaseHelper(main_page.this);
         books = new ArrayList<>();
 
@@ -65,6 +68,8 @@ public class main_page extends AppCompatActivity {
         setUplistViewListener();
 
         displayData();
+
+
 
 
     }
@@ -113,4 +118,6 @@ public class main_page extends AppCompatActivity {
     }
 
 }
+
+
 

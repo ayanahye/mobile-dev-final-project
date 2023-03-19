@@ -9,13 +9,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@color/bluee"
         android:padding="16dp">
 
         <Button
             android:id="@+id/prevButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/darkestbrown"
             android:text="prev"/>
+
 
         <TextView
             android:id="@+id/titleTextView"
@@ -33,12 +36,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:background="@color/lightestbrown"
         android:scrollbarStyle="outsideOverlay"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@color/bluee"
         android:padding="16dp">
 
 
@@ -53,6 +58,7 @@
             android:id="@+id/addBookButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/darkestbrown"
             android:text="Add"/>
 
     </LinearLayout>
@@ -62,6 +68,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="deleteAll"
+        android:backgroundTint="@color/darkestbrown"
         android:text="Delete All" />
 
 </LinearLayout>
