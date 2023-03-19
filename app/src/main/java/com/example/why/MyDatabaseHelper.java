@@ -12,11 +12,12 @@ import androidx.annotation.Nullable;
 public class MyDatabaseHelper extends SQLiteOpenHelper {
     private Context context;
     private static final String DATABASE_NAME = "BookLibrary.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private static final String TABLE_NAME = "my_library";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_TITLE = "book_title";
     //private static final String COLUMN_AUTHOR = "book_author";
+    public static final String RATING_COLUMN = "rating"; // new column
 
 
     public MyDatabaseHelper (@Nullable Context context) {
@@ -27,11 +28,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_NAME + "( " + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_TITLE + " TEXT); ";
+                COLUMN_TITLE + " TEXT, " + RATING_COLUMN + " REAL DEFAULT 0.0); ";
 
         db.execSQL(query);
 
     }
+
 
     @Override
     public void onUpgrade (SQLiteDatabase db, int i, int i1) {
@@ -45,6 +47,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues();
 
         cv.put(COLUMN_TITLE, title);
+        cv.put(RATING_COLUMN, 0.0);
         long result = db.insert(TABLE_NAME, null, cv);
         if (result == -1) {
             Toast.makeText(context, "failed", Toast.LENGTH_LONG).show();
@@ -53,6 +56,17 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
 
     }
+
+    public boolean updateRating(String title, float rating) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(RATING_COLUMN, rating);
+        int result = db.update(TABLE_NAME, contentValues, COLUMN_TITLE + "=?", new String[]{title});
+        return result != -1;
+    }
+
+
+
     Cursor readAllData() {
         String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();

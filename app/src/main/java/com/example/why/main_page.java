@@ -19,14 +19,13 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.example.why.SettingsActivity;
 
 import java.util.ArrayList;
 
 public class main_page extends AppCompatActivity {
-
-
     private ArrayList<String> books;
     private ArrayAdapter<String> booksAdapter;
     private Button button;
@@ -77,13 +76,24 @@ public class main_page extends AppCompatActivity {
             public View getView(int position, View convertView, ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
 
+                booksAdapter.notifyDataSetChanged();
+
                 Button ratingButton = view.findViewById(R.id.rateButton);
                 ratingButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         showRatingDialog(books.get(position));
                     }
+
+
                 });
+
+                Cursor cursor = myDB.readAllData();
+                cursor.moveToPosition(position);
+                float rating = cursor.getFloat(cursor.getColumnIndexOrThrow("rating"));
+
+                TextView ratingTextView = view.findViewById(R.id.ratingTextView);
+                ratingTextView.setText("Rating: " + rating);
 
                 Button deleteButton = view.findViewById(R.id.deleteButton);
                 deleteButton.setOnClickListener(new View.OnClickListener() {
@@ -119,7 +129,7 @@ public class main_page extends AppCompatActivity {
     }
 
     private void showRatingDialog(String bookTitle) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(main_page.this);
         builder.setTitle("Rate " + bookTitle);
 
         // Add a rating bar to the dialog
@@ -135,7 +145,9 @@ public class main_page extends AppCompatActivity {
                 // Save the rating to your database or wherever you store your book ratings
                 // You can also update the rating display in your list item layout here
                 float rating = ratingBar.getRating();
+                myDB.updateRating(bookTitle, rating);
                 Toast.makeText(main_page.this, "Rating saved: " + rating, Toast.LENGTH_SHORT).show();
+                booksAdapter.notifyDataSetChanged();
             }
         });
         builder.setNegativeButton("Cancel", null);
