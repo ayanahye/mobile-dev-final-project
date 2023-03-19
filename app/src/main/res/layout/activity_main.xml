@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,40 +10,56 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/lightestbrown"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/bluee"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/oo"/>
 
         <EditText
             android:id="@+id/Title"
-            android:layout_width="259dp"
-            android:layout_height="58dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Reading Library" />
+            android:text="Reading Library"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"/>
 
         <Button
             android:id="@+id/currRead"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="126dp"
-            android:layout_marginEnd="126dp"
             android:backgroundTint="@color/darkestbrown"
-            android:text="Current Books" />
+            android:text="Current Books"
+            android:layout_marginBottom="16dp"/>
 
         <Button
             android:id="@+id/prevRead"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="157dp"
-            android:layout_marginEnd="144dp"
             android:backgroundTint="@color/darkestbrown"
-            android:text="Generate Book" />
+            android:text="Generate Book"
+            android:layout_marginBottom="16dp"/>
 
         <Switch
             android:id="@+id/switchTheme"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Night Mode" />
+            android:text="Night Mode"
+            android:textSize="18sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

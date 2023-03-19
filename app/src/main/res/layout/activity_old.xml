@@ -52,6 +52,14 @@
             android:gravity="center_horizontal"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/bookCoverImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/oo" />
+
     </LinearLayout>
 
 </LinearLayout>
