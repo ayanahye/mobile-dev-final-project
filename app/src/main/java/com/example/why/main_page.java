@@ -1,17 +1,24 @@
 package com.example.why;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.Toast;
 import com.example.why.SettingsActivity;
 
@@ -63,9 +70,46 @@ public class main_page extends AppCompatActivity {
             }
         });
 
-        booksAdapter = new ArrayAdapter<>(this, R.layout.list_item, R.id.textView, books);
-        listView.setAdapter(booksAdapter);
         setUplistViewListener();
+
+        booksAdapter = new ArrayAdapter<String>(this, R.layout.list_item, R.id.textView, books) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+
+                Button ratingButton = view.findViewById(R.id.rateButton);
+                ratingButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showRatingDialog(books.get(position));
+                    }
+                });
+
+                Button deleteButton = view.findViewById(R.id.deleteButton);
+                deleteButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Delete the book from the database
+                        Cursor cursor = myDB.readAllData();
+                        cursor.moveToPosition(position);
+                        int id = cursor.getInt(cursor.getColumnIndexOrThrow("_id"));
+                        myDB.deleteBook(id);
+
+                        // Remove the book from the list and notify the adapter
+                        books.remove(position);
+                        booksAdapter.notifyDataSetChanged();
+                    }
+                });
+
+                return view;
+            }
+        };
+
+        listView.setAdapter(booksAdapter);
+
+
+    //listView.setAdapter(booksAdapter);
+        // setUplistViewListener();
 
         displayData();
 
@@ -73,6 +117,32 @@ public class main_page extends AppCompatActivity {
 
 
     }
+
+    private void showRatingDialog(String bookTitle) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Rate " + bookTitle);
+
+        // Add a rating bar to the dialog
+        RatingBar ratingBar = new RatingBar(this);
+        ratingBar.setNumStars(5);
+        //ratingBar.setStepSize(1);
+        ratingBar.setProgressTintList(ColorStateList.valueOf(Color.YELLOW));
+        builder.setView(ratingBar);
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Save the rating to your database or wherever you store your book ratings
+                // You can also update the rating display in your list item layout here
+                float rating = ratingBar.getRating();
+                Toast.makeText(main_page.this, "Rating saved: " + rating, Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("Cancel", null);
+
+        builder.create().show();
+    }
+
 
     private void setUplistViewListener() {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
