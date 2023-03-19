@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="bluee">#282A3A</color>
+    <color name="lightestbrown">#C69749</color>
+    <color name="mediumbrown">#000000</color>
+    <color name="darkestbrown">#735F32</color>
+    <color name="black">#FFFFFF</color>
 
 
 
 
-    
 </resources>
