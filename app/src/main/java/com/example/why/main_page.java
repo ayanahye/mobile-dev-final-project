@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -63,8 +64,16 @@ public class main_page extends AppCompatActivity {
             }
         });
 
-        booksAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, books);
+        booksAdapter = new ArrayAdapter<>(this, R.layout.list_item, R.id.textView, books);
         listView.setAdapter(booksAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long id) {
+                CheckBox checkBox = view.findViewById(R.id.checkBox);
+                checkBox.toggle();
+            }
+        });
         setUplistViewListener();
 
         displayData();
