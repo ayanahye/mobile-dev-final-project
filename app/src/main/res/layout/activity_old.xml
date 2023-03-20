@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/bookshelfLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,23 +10,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/bluee"
+        android:background="@color/dark"
         android:padding="16dp">
 
         <Button
             android:id="@+id/nextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/darkestbrown"
-            android:text="next" />
+            android:backgroundTint="@color/whipped"
+            android:fontFamily="@font/yeseva_one"
+            android:text="@string/nextButton"
+            android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/titleTextView"
+            android:id="@+id/TitleBookshelf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/yeseva_one"
             android:padding="16dp"
-            android:text="Generate Book"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:text="@string/TitleGen"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/cream" />
 
     </LinearLayout>
 
@@ -33,7 +38,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/lightestbrown"
+        android:background="@color/coffee"
         android:orientation="vertical">
 
         <Button
@@ -41,8 +46,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:backgroundTint="@color/darkestbrown"
-            android:text="Generate Book" />
+            android:backgroundTint="@color/whipped"
+            android:fontFamily="@font/yeseva_one"
+            android:text="@string/generateButton"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/bookTitleTextView"
@@ -54,11 +61,10 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/bookCoverImageView"
+            android:id="@+id/animeboy"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/oo" />
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/animeboy" />
 
     </LinearLayout>
 

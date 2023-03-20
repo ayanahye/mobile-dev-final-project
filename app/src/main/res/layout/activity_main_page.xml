@@ -9,24 +9,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/bluee"
+        android:background="@color/dark"
         android:padding="16dp">
 
         <Button
             android:id="@+id/prevButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/darkestbrown"
-            android:text="prev"/>
+            android:backgroundTint="@color/whipped"
+            android:fontFamily="@font/yeseva_one"
+            android:text="@string/prevButton"
+            android:textColor="@color/black" />
 
 
         <TextView
-            android:id="@+id/titleTextView"
+            android:id="@+id/TitleBookshelf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/yeseva_one"
             android:padding="16dp"
-            android:text="Bookshelf"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+            android:text="@string/TitleBookshelf"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/cream" />
 
 
     </LinearLayout>
@@ -34,32 +38,36 @@
     <ListView
         android:id="@+id/bookListView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="438dp"
         android:layout_weight="1"
-        android:textColor="@color/black"
-        android:background="@color/lightestbrown"
-        android:scrollbarStyle="outsideOverlay" />
+        android:background="@color/cream"
+        android:scrollbarStyle="outsideOverlay"
+        android:textColor="@color/white" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
+        android:background="@color/dark"
         android:orientation="horizontal"
-        android:background="@color/bluee"
         android:padding="16dp">
 
         <EditText
             android:id="@+id/addBookEditText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="294dp"
+            android:layout_height="61dp"
             android:layout_weight="1"
-            android:hint="Enter book title" />
+            android:fontFamily="@font/yeseva_one"
+            android:hint="Enter book title"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/addBookButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/darkestbrown"
-            android:text="Add"/>
+            android:backgroundTint="@color/whipped"
+            android:fontFamily="@font/yeseva_one"
+            android:text="@string/addBookButton"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 
@@ -67,8 +75,10 @@
         android:id="@+id/deleteAllButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/whipped"
+        android:fontFamily="@font/yeseva_one"
         android:onClick="deleteAll"
-        android:backgroundTint="@color/darkestbrown"
-        android:text="Delete All" />
+        android:text="@string/deleteAllButton"
+        android:textColor="@color/black" />
 
 </LinearLayout>

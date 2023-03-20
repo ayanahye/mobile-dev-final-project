@@ -9,6 +9,8 @@
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/yeseva_one"
+        android:textColor="@color/black"
         android:layout_weight="1"
         android:textSize="16sp"/>
 
@@ -16,6 +18,8 @@
     <TextView
         android:id="@+id/ratingTextView"
         android:layout_width="71dp"
+        android:fontFamily="@font/yeseva_one"
+        android:textColor="@color/black"
         android:layout_height="wrap_content"
         android:textSize="16sp" />
 
@@ -23,22 +27,26 @@
         android:id="@+id/rateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/darkestbrown"
-        android:text="Rate"
         android:layout_marginRight="8dp"
+        android:backgroundTint="@color/whipped"
+        android:fontFamily="@font/yeseva_one"
         android:paddingLeft="12dp"
         android:paddingRight="12dp"
-        android:textSize="14sp"/>
+        android:text="@string/rateButton"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
 
     <Button
         android:id="@+id/deleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/darkestbrown"
+        android:backgroundTint="@color/whipped"
+        android:fontFamily="@font/yeseva_one"
         android:paddingLeft="12dp"
         android:paddingRight="12dp"
-        android:textSize="14sp"
-        android:text="Delete"/>
+        android:text="@string/deleteButton"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
 
 
 </LinearLayout>

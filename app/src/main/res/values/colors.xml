@@ -12,4 +12,9 @@
     <color name="mediumbrown">#D7C0AE</color>
     <color name="darkestbrown">#967E76</color>
 
+    <color name="dark">#2B3467</color>
+    <color name="coffee">#F5EFE6</color>
+    <color name="cream">#B99B6B</color>
+    <color name="whipped">#BAD7E9</color>
+
 </resources>
