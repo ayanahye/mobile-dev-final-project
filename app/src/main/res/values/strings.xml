@@ -2,6 +2,19 @@
     <string name="app_name">why</string>
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="dark_mode">Dark mode</string>
+    <string name="currRead">Current Books</string>
+    <string name="prevRead">Generate Book</string>
+    <string name="Title">~Reading Library~</string>
+    <string name="Switch">Night mode</string>
+    <string name="TitleGen">Generate Book</string>
+    <string name="TitleBookshelf">~Bookshelf~</string>
+    <string name="deleteAllButton">Delete All</string>
+    <string name="addBookButton">Add</string>
+    <string name="prevButton">Prev</string>
+    <string name="rateButton">Rate</string>
+    <string name="deleteButton">Delete</string>
+    <string name="nextButton">Next</string>
+    <string name="generateButton">Generate Book</string>
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>

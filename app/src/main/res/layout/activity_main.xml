@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Switch"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -10,52 +10,63 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/dark"
+        android:gravity="center"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:background="@color/bluee"
-        android:gravity="center">
+        android:padding="16dp">
 
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/oo"/>
+            android:id="@+id/animegirl"
+            android:layout_width="297dp"
+            android:layout_height="237dp"
+            android:src="@drawable/oo" />
 
         <EditText
             android:id="@+id/Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
             android:ems="10"
+            android:fontFamily="@font/yeseva_one"
             android:inputType="textPersonName"
-            android:text="Reading Library"
+            android:text="@string/Title"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"/>
+            android:textColor="@color/cream" />
 
         <Button
             android:id="@+id/currRead"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/darkestbrown"
-            android:text="Current Books"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/whipped"
+            android:fontFamily="@font/yeseva_one"
+            android:text="@string/currRead"
+            android:textColor="@color/black"
+            android:textStyle="italic" />
 
         <Button
             android:id="@+id/prevRead"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/darkestbrown"
-            android:text="Generate Book"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/whipped"
+            android:fontFamily="@font/yeseva_one"
+            android:text="@string/prevRead"
+            android:textColor="@color/black"
+            android:textStyle="italic" />
 
         <Switch
             android:id="@+id/switchTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Night Mode"
-            android:textSize="18sp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="16dp"
+            android:fontFamily="@font/yeseva_one"
+            android:text="@string/Switch"
+            android:textColor="@color/cream"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
