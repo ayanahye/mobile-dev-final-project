@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Why"
         tools:targetApi="31">
         <activity
+            android:name=".contact"
+            android:exported="false" />
+        <activity
             android:name=".SettingsActivity"
             android:exported="false"
             android:label="@string/title_activity_settings" />
