@@ -14,7 +14,7 @@ public class contact extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
 
-        Button next = findViewById(R.id.nextButton);
+        Button next = findViewById(R.id.homeButton);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -12,6 +12,7 @@
         android:background="@color/dark"
         android:padding="16dp">
 
+
         <Button
             android:id="@+id/prevButton"
             android:layout_width="wrap_content"
@@ -21,10 +22,9 @@
             android:text="@string/prevButton"
             android:textColor="@color/black" />
 
-
         <TextView
             android:id="@+id/TitleBookshelf"
-            android:layout_width="match_parent"
+            android:layout_width="275dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/yeseva_one"
             android:padding="16dp"

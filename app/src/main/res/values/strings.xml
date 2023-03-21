@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">why</string>
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="dark_mode">Dark mode</string>
@@ -15,6 +15,14 @@
     <string name="deleteButton">Delete</string>
     <string name="nextButton">Next</string>
     <string name="generateButton">Generate Book</string>
+    <string name="person1name">Ayana Hussain</string>
+    <string name="person1email">aih4@sfu.ca</string>
+    <string name="person2name">Sumaiya Siddiqui</string>
+    <string name="person2email">sos@sfu.ca</string>
+    <string name="titleContact">Contacts</string>
+    <string name="homeButton">Home</string>
+    <string name="school">Simon Fraser University</string>
+    <string name="schoolName">SFU</string>
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>

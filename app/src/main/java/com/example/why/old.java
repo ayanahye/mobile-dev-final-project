@@ -41,7 +41,14 @@ public class old extends AppCompatActivity {
             "The Name of the Wind",
             "The Wise Man's Fear",
             "The Way of Kings",
-            "Words of Radiance"
+            "Words of Radiance",
+            "Eat Pray Love",
+            "Twilight Series",
+            "the Harry Potter Series",
+            "It Ends With Us",
+            "Murder on the Orient Express",
+            "The Paris Seamstress",
+            "Percy Jackson & the Olympians"
     };
 
     // Define a method to generate a random book title
@@ -56,7 +63,7 @@ public class old extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_old);
 
-        Button next = findViewById(R.id.nextButton);
+        Button next = findViewById(R.id.homeButton);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
