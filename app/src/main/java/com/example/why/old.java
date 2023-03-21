@@ -60,7 +60,7 @@ public class old extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(old.this, MainActivity.class);
+                Intent intent = new Intent(old.this, main_page.class);
                 startActivity(intent);
             }
         });
