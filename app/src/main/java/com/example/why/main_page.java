@@ -134,8 +134,8 @@ public class main_page extends AppCompatActivity {
 
         // Add a rating bar to the dialog
         RatingBar ratingBar = new RatingBar(this);
-        ratingBar.setNumStars(5);
-        //ratingBar.setStepSize(1);
+        ratingBar.setNumStars(6);
+        ratingBar.setStepSize(1);
         ratingBar.setProgressTintList(ColorStateList.valueOf(Color.YELLOW));
         builder.setView(ratingBar);
 
@@ -144,7 +144,7 @@ public class main_page extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 // Save the rating to your database or wherever you store your book ratings
                 // You can also update the rating display in your list item layout here
-                float rating = ratingBar.getRating();
+                float rating = ratingBar.getRating() + 1;
                 myDB.updateRating(bookTitle, rating);
                 Toast.makeText(main_page.this, "Rating saved: " + rating, Toast.LENGTH_SHORT).show();
                 booksAdapter.notifyDataSetChanged();
